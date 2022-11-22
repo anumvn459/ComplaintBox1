@@ -1,0 +1,34 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="UserPage.master.cs" Inherits="ComplaintBox1.User.UserPage" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body style="background-color:lightpink">
+    <h1 align="center">User Dashboard</h1>
+    <header style="background-color:white" align="center">
+        <br />
+        
+        
+        <a href="../User/User.aspx">Home</a>&nbsp
+        <a href="../User/complaint.aspx">Complaint Registration</a>&nbsp
+        <a href="../User/Query.aspx">Query Registration</a>&nbsp
+        <a href="../User/productview.aspx">Product View </a>&nbsp
+        
+        
+        <br />
+        <br />
+    </header>
+    <form id="form1" runat="server">
+        <div>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+
+            </asp:ContentPlaceHolder>
+        </div>
+    </form>
+</body>
+</html>
