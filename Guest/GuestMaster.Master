@@ -8,12 +8,13 @@
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
-<body style="background-color:lightsalmon">
-    <br />
+<body style="background-image:url(pro.jpg);background-repeat:no-repeat;">
+    <h1 align="center" style="color:white">COMPLAINT BOX</h1>
+    
     <header style="background-color:white" align="center">
         <br /><b>
-        <a href="../Guest/Login.aspx">Login</a>&nbsp
-        <a href="../Guest/userreg.aspx">Registration</a>&nbsp
+        <a href="../Guest/Login.aspx" style="font-size:larger">Login</a>&nbsp&nbsp
+        <a href="../Guest/userreg.aspx"style="font-size:larger">Registration</a>&nbsp&nbsp
         </b>
         <br />
         <br />

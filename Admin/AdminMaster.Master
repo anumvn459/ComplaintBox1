@@ -1,5 +1,7 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="AdminMaster.master.cs" Inherits="ComplaintBox1.Admin.AdminMaster" %>
 
+
+
 <!DOCTYPE html>
 
 <html>
@@ -8,18 +10,16 @@
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
-<body style="background-color:lightblue" align="center" >
-    <h1 align="center">Admin Dashboard</h1>
-    <header style="background-color:lightcoral" align="center">
-        <br />
-        <a href="../Admin/AdminPage.aspx">Home</a>&nbsp
-        <a href="../Admin/prodreg.aspx">Product Registration</a>&nbsp
-        <a href="../Admin/userVerification.aspx">User Verification</a>&nbsp
-        
-        <a href="../User/ChatBox.aspx">Chat Box</a>&nbsp
-        <a href="../Admin/Complaint_verify.aspx">Complaint View</a>
-       
-
+<body style="background-color:lightyellow" align="center" >
+    <h1 align="center">ADMIN DASHBOARD</h1>
+    <header style="background-color:white" align="center">
+        <br /><b>
+        <a href="../Admin/AdminPage.aspx" style="font-size:larger">Home</a>&nbsp&nbsp
+        <a href="../Admin/prodreg.aspx" style="font-size:larger">Product Registration</a>&nbsp&nbsp
+        <a href="../Admin/userVerification.aspx" style="font-size:larger">User Verification</a>&nbsp&nbsp
+        <a href="../Admin/ComplaintView.aspx" style="font-size:larger">Complaint View</a>&nbsp&nbsp
+        <a href="../Admin/ChatBox.aspx" style="font-size:larger">Chat Box</a>&nbsp&nbsp
+        <a href="../Guest/index.aspx" style="font-size:larger">Log Out </a>&nbsp&nbsp</b>
         <br />
         <br />
     </header>

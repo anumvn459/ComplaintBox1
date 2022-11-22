@@ -14,7 +14,6 @@ namespace ComplaintBox1.Admin
         {
             GridView1.DataSource = objprobal.viewUser();
             GridView1.DataBind();
-
         }
 
         protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
@@ -32,5 +31,3 @@ namespace ComplaintBox1.Admin
         }
     }
 }
-
-

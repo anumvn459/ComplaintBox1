@@ -5,15 +5,22 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace ComplaintBox1.User
+namespace ComplaintBox1.Admin
 {
-    public partial class ProductView : System.Web.UI.Page
+    public partial class ChatBox : System.Web.UI.Page
     {
         BAL.ProBAL objprobal = new BAL.ProBAL();
         protected void Page_Load(object sender, EventArgs e)
         {
-            GridView1.DataSource = objprobal.viewProd();
-            GridView1.DataBind();
+            GridView3.DataSource = objprobal.ViewQueries();
+            GridView3.DataBind();
         }
+
+        protected void GridView3_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+
     }
 }

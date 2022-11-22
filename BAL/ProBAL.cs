@@ -17,16 +17,14 @@ namespace ComplaintBox1.BAL
         private string _ProName;
         private string _price;
         private int _login;
-        private int _ProductId;
-        private string _Complaint;
+        private int _proId;
+        private int _cid;
+        private int _qid;
+        private string _complaint;
         private string _query;
-        private string _To;
-        private string _From;
-        private string _C_Id;
-        
-        
-        
-
+        private string _toDate;
+        private string _reply;
+        private string _fromDate;
         public String Name
         {
             get
@@ -110,32 +108,53 @@ namespace ComplaintBox1.BAL
             }
 
         }
-
-        public int Product_Id
+        public int C_Id
         {
             get
             {
-                return _ProductId;
+                return _cid;
             }
             set
             {
-                _ProductId = value;
+                _cid = value;
             }
-        }
 
-        public String Complaint
+        }
+        public int Q_Id
         {
             get
             {
-                return _Complaint;
+                return _qid;
             }
             set
             {
-                _Complaint = value;
+                _qid = value;
+            }
+
+        }
+        public int ProductId
+        {
+            get
+            {
+                return _proId;
+            }
+            set
+            {
+                _proId = value;
             }
         }
-
-        public String Productquery
+        public string Complaint
+        {
+            get
+            {
+                return _complaint;
+            }
+            set
+            {
+                _complaint = value;
+            }
+        }
+        public string ProductQuery
         {
             get
             {
@@ -146,47 +165,39 @@ namespace ComplaintBox1.BAL
                 _query = value;
             }
         }
-
-        public String To
+        public string ToDate
         {
             get
             {
-                return _To;
+                return _toDate;
             }
             set
             {
-                _To = value;
+                _toDate = value;
             }
         }
-
-        public String From
+        public string FromDate
         {
             get
             {
-                return _From;
+                return _fromDate;
             }
             set
             {
-                _From = value;
+                _fromDate = value;
             }
         }
-
-        public String C_Id
+        public String Reply
         {
             get
             {
-                return _C_Id;
+                return _reply;
             }
             set
             {
-                _C_Id = value;
+                _reply = value;
             }
         }
-
-
-
-
-
         public int InsertStudent()
         {
             return objprodal.UserInsert(this);
@@ -207,59 +218,70 @@ namespace ComplaintBox1.BAL
         {
             return objprodal.userApprove(this);
         }
-
         public DataTable LoginPage()
         {
             return objprodal.PageLogin(this);
         }
-
         public DataTable viewProd()
         {
             return objprodal.ProdView();
         }
-
+        public DataSet viewproId()
+        {
+            return objprodal.ProdIdView();
+        }
         public int InsertComplaint()
         {
-            return objprodal.complaint (this);
+            return objprodal.Complaint(this);
         }
-
         public int InsertQuery()
         {
             return objprodal.QueryInsert(this);
         }
-
-        public DataTable GetProduct ()
+        public DataTable GetProduct()
         {
-            return objprodal.GetProduct(this);
+            return objprodal.GetProDetails(this);
         }
-
-        public DataTable Getquery ()
+        public DataTable viewComplaint()
         {
-            return objprodal.Getquery (this);
+            return objprodal.ComplaintView(this);
         }
-
-        public DataTable ComplaintView()
+        public DataTable viewComplaintAll()
         {
-            return objprodal.Complaintview(this);
+            return objprodal.ComplaintViewAll(this);
         }
-
-        public int approvecomplaint()
+        public int StatusProgres()
         {
-            return objprodal.ComplaintApprove(this);
+            return objprodal.ProgresStatus(this);
         }
-
-        public DataTable inprocesscomplaint()
+        public int StatusClosed()
         {
-            return objprodal.Complaintinprocess(this);
+            return objprodal.ClosedStatus(this);
         }
-
-        public DataTable processcompleted()
+        public DataTable ComplaintClosed()
         {
-            return objprodal.ComplaintClosed(this);
+            return objprodal.ClosedComplaint(this);
         }
-
-
-
+        public DataTable viewMyself()
+        {
+            return objprodal.MyselfView(this);
+        }
+        public DataTable ViewQueries()
+        {
+            return objprodal.QueriesView(this);
+        }
+        public int GiveReply()
+        {
+            return objprodal.GiveReplyDetails(this);
+        }
+        public DataTable ViewSpecificQuery()
+        {
+            return objprodal.ViewSpecificQueryDetails(this);
+        }
+        public DataTable viewMyQuery()
+        {
+            return objprodal.MyQuery(this);
+        }
 
     }
 }

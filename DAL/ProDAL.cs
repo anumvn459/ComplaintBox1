@@ -29,7 +29,7 @@ namespace ComplaintBox1.DAL
         }
         public int UserInsert(BAL.ProBAL obj)
         {
-            string qry = "insert into User_Tbl values('" + obj.Name + "','" + obj.Email + "','" + obj.Phone_Number + "')";
+            string qry = "insert into Tbl_User values('" + obj.Name + "','" + obj.Email + "','" + obj.Phone_Number + "')";
             SqlCommand cmd = new SqlCommand(qry, GetCon());
             return cmd.ExecuteNonQuery();
         }
@@ -47,7 +47,7 @@ namespace ComplaintBox1.DAL
         }
         public DataTable UserView()
         {
-            string s = "select *from Login where status='waiting'";
+            string s = "select *from Login where Status='waiting'";
             SqlCommand cmd = new SqlCommand(s, GetCon());
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             DataTable dt = new DataTable();
@@ -57,129 +57,157 @@ namespace ComplaintBox1.DAL
         }
         public int userApprove(BAL.ProBAL obj)
         {
-            string s = "Update Login set status='Confirm' where login_id =" + obj.login_id;
+            string s = "Update Login set Status='Confirm' where login_id =" + obj.login_id;
             SqlCommand cmd = new SqlCommand(s, GetCon());
             return cmd.ExecuteNonQuery();
         }
         public DataTable PageLogin(BAL.ProBAL obj)
         {
-            string qry = "SELECT * FROM  Login WHERE Username='" + obj.Name + "' AND Password='" + obj.Password + "'";
-            SqlCommand cmd = new SqlCommand(qry, GetCon());
+            string qry3 = "SELECT * FROM Login WHERE Username ='" + obj.Name + "' AND Password='" + obj.Password + "'";
+            SqlCommand cmd = new SqlCommand(qry3, GetCon());
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             DataTable dt = new DataTable();
             da.Fill(dt);
             return dt;
         }
-
         public DataTable ProdView()
-
         {
-
-            string s = "SELECT * FROM  Product";
+            string s = "select *from Product";
             SqlCommand cmd = new SqlCommand(s, GetCon());
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             DataTable dt = new DataTable();
             da.Fill(dt);
             return dt;
+
         }
-
-
-        public int complaint(BAL.ProBAL obj)
+        public DataSet ProdIdView()
         {
-            string qry2 = "insert into complaint(User_Id,Product_Id,Complaint,Status,Date)values('"+ obj.login_id + "','"+ obj.Product_Id + "','" + obj.Complaint + "','Notyet',GETDATE() )";
+            string s = "select *from Product";
+            SqlCommand cmd = new SqlCommand(s, GetCon());
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            DataSet ds = new DataSet();
+            da.Fill(ds);
+            return ds;
+
+        }
+        public int Complaint(BAL.ProBAL obj)
+        {
+            string qry2 = "insert into complaint(User_Id,UserName,Product_Id,Complaint,Status,C_Date) values('" + obj.login_id + "','" + obj.Name + "','" + obj.ProductId + "','" + obj.Complaint + "','Notyet',GETDATE() )";
             SqlCommand cmd = new SqlCommand(qry2, GetCon());
             return cmd.ExecuteNonQuery();
         }
-
         public int QueryInsert(BAL.ProBAL obj)
         {
-            string qry2 = "insert into Query(Product_Id,User_Id,Query)values('" + obj.Product_Id +"','" + obj.login_id  + "','" + obj.Productquery + "')";
+            string qry2 = "insert into Query(Product_Id,User_Id,UserName,Query,Reply) values('" + obj.ProductId + "','" + obj.login_id + "','" + obj.Name + "','" + obj.ProductQuery + "','Reply Waiting')";
             SqlCommand cmd = new SqlCommand(qry2, GetCon());
             return cmd.ExecuteNonQuery();
         }
-        public DataTable GetProduct (BAL.ProBAL obj)
+        public DataTable GetProDetails(BAL.ProBAL obj)
         {
-            
-            string qry = "SELECT * FROM  Product";
-            SqlCommand cmd = new SqlCommand(qry , GetCon());
+            string qry2 = "select * from Product";
+            SqlCommand cmd = new SqlCommand(qry2, GetCon());
+            DataTable ds = new DataTable();
             SqlDataAdapter da = new SqlDataAdapter(cmd);
-            DataTable dt = new DataTable();
-            da.Fill(dt);
-            return dt;
+            da.Fill(ds);
+            return ds;
         }
-
-
-        public DataTable Getquery(BAL.ProBAL obj)
+        public DataTable ComplaintView(BAL.ProBAL obj)
+        {
+            // string qry2 = "select * from complaint where status='Notyet'";
+            string qry2 = "select * from complaint where Status='Notyet' AND C_Date >= '" + obj.FromDate + "' AND C_Date<='" + obj.ToDate + "'";
+            SqlCommand cmd = new SqlCommand(qry2, GetCon());
+            DataTable ds = new DataTable();
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            da.Fill(ds);
+            return ds;
+        }
+        public DataTable ComplaintViewAll(BAL.ProBAL obj)
         {
 
-            string qry = "SELECT * FROM  Product";
+            string qry2 = "select * from complaint";
+            //string qry2 = "select * from complaint where Status='Notyet' AND C_Date >= '" + obj.FromDate + "' AND C_Date<='" + obj.ToDate + "'";
+            SqlCommand cmd = new SqlCommand(qry2, GetCon());
+            DataTable ds = new DataTable();
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            da.Fill(ds);
+            return ds;
+        }
+        public int ProgresStatus(BAL.ProBAL obj)
+        {
+            string s = "Update complaint set Status='inProgress' where C_id =" + obj.C_Id;
+            SqlCommand cmd = new SqlCommand(s, GetCon());
+            return cmd.ExecuteNonQuery();
+        }
+        public int ClosedStatus(BAL.ProBAL obj)
+        {
+            string s = "Update complaint set Status='Closed' where C_id =" + obj.C_Id;
+            SqlCommand cmd = new SqlCommand(s, GetCon());
+            return cmd.ExecuteNonQuery();
+        }
+        public DataTable ClosedComplaint(BAL.ProBAL obj)
+        {
+            // string qry2 = "select * from complaint where status='Notyet'";
+            string qry2 = "select * from complaint where Status='inProgress' AND C_Date >= '" + obj.FromDate + "' AND C_Date<='" + obj.ToDate + "'";
+            SqlCommand cmd = new SqlCommand(qry2, GetCon());
+            DataTable ds = new DataTable();
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            da.Fill(ds);
+            return ds;
+        }
+        public DataTable MyselfView(BAL.ProBAL obj)
+        {
+
+            string qry2 = "select * from complaint where User_Id=" + obj.login_id;
+            SqlCommand cmd = new SqlCommand(qry2, GetCon());
+            DataTable ds = new DataTable();
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            da.Fill(ds);
+            return ds;
+        }
+        public DataTable QueriesView(BAL.ProBAL obj)
+        {
+
+            string qry2 = "select * from Query where Reply= 'Reply Waiting'";
+            SqlCommand cmd = new SqlCommand(qry2, GetCon());
+            DataTable ds = new DataTable();
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            da.Fill(ds);
+            return ds;
+        }
+        public DataTable ReplyQuery(BAL.ProBAL obj)
+        {
+            string s = "Update Query set Reply='" + obj.Reply + "' where Query_id =" + obj.Q_Id;
+            SqlCommand cmd = new SqlCommand(s, GetCon());
+            DataTable ds = new DataTable();
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            da.Fill(ds);
+            return ds;
+
+        }
+        public DataTable ViewSpecificQueryDetails(BAL.ProBAL querybal)
+        {
+            string qry = "SELECT l.Username,p.*,q.* FROM Query q INNER JOIN Login l ON l.login_id= q.User_Id INNER JOIN Product p ON p.Product_Id = q.Product_Id WHERE q.Query_Id='" + querybal.Q_Id + "'";
             SqlCommand cmd = new SqlCommand(qry, GetCon());
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
             DataTable dt = new DataTable();
-            da.Fill(dt);
+            SqlDataAdapter dataAdapter = new SqlDataAdapter(cmd);
+            dataAdapter.Fill(dt);
             return dt;
         }
-
-        public DataTable Complaintview(BAL.ProBAL obj)
+        public int GiveReplyDetails(BAL.ProBAL querybal)
         {
-
-            //string qry = "SELECT * FROM  Product";
-            string qry2 = "select * from complaint where Date >= '" + obj.From + "' AND Date<='" + obj.To + "'";
-            SqlCommand cmd = new SqlCommand(qry2, GetCon());
-            
-            DataTable ds = new DataTable();
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
-            da.Fill(ds);
-            return ds;
-        }
-
-
-        public int ComplaintApprove(BAL.ProBAL obj)
-        {
-
-            
-            string s = "update Complaint set Status ='InProcess' where C_Id='" + obj.C_Id + "'";
-
-            SqlCommand cmd = new SqlCommand(s, GetCon());
-
-            
+            string qry = "UPDATE  Query SET Reply = '" + querybal.Reply + "' where Query_Id = '" + querybal.Q_Id + "'";
+            SqlCommand cmd = new SqlCommand(qry, GetCon());
             return cmd.ExecuteNonQuery();
         }
-
-        public DataTable Complaintinprocess(BAL.ProBAL obj)
+        public DataTable MyQuery(BAL.ProBAL obj)
         {
 
-            
-            string s = "update Complaint set Status ='InProcess' where C_Id='" + obj.C_Id + "'";
-            SqlCommand cmd = new SqlCommand(s, GetCon());
-
+            string qry2 = "select * from Query where User_Id=" + obj.login_id;
+            SqlCommand cmd = new SqlCommand(qry2, GetCon());
             DataTable ds = new DataTable();
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             da.Fill(ds);
             return ds;
         }
-
-        public DataTable ComplaintClosed(BAL.ProBAL obj)
-        {
-
-
-            string s = "update Complaint set Status ='Process closed' where C_Id='" + obj.C_Id + "'";
-            SqlCommand cmd = new SqlCommand(s, GetCon());
-
-            DataTable ds = new DataTable();
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
-            da.Fill(ds);
-            return ds;
-        }
-
-
-
-
     }
 }
-
-
-
-
-    
-

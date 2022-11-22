@@ -1,28 +1,50 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/User/UserPage.Master" AutoEventWireup="true" CodeBehind="complaint.aspx.cs" Inherits="ComplaintBox1.User.complaint" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/User/UserPage.Master" AutoEventWireup="true" CodeBehind="Complaint.aspx.cs" Inherits="ComplaintBox1.User.Complaint" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-        
-  
-    <h1><center> Register Product compliant Here</center></h1>
-    <center>
-        <br />
-        <br />
-        <asp:Label  ID="label1" runat="server" Text="Product Name"></asp:Label>
-        <asp:DropDownList ID="DropDownList1" runat="server" >
+    <u><h2 align="center">Complaint Portal</h2></u>
+    <table align="center">
+                <tr>
+                    <td>&nbsp</td>
+                    <td>&nbsp</td>
+                </tr>
+                <tr>
+                    <td>
+                        <asp:GridView ID="GridView1" runat="server"  AutoGenerateColumns="False" DataKeyNames="Product_Id"  >
+                            <Columns>
+            
+                                <asp:BoundField DataField="Product_Id" HeaderText="Product Id" />
+                                <asp:BoundField DataField="Product_Name" HeaderText="Product Name" />  
+                                <asp:BoundField DataField="Price" HeaderText="Product Price" />
+                            </Columns>
+                        </asp:GridView>
+                    </td>
+                </tr>
+        </table>
+        <div>
+            <h2 align="center">Register Your Complaints Here</h2>
+            <table align="center">
+                <tr>
+                    <td>Product Name</td>
+                    <td>
+                        <asp:DropDownList ID="DropDownList1" runat="server" ></asp:DropDownList>
+                        
 
-        </asp:DropDownList>
-     
-        </br>
-
-        
-
-
-        <asp:Label ID="Label3" runat="server" Text="Issue with product"></asp:Label>
-        <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
-
-        <asp:Button ID="Button1" runat="server" Text="Sumbit" OnClick="Button1_Click" />
-        
+                    </td>
+                  </tr>
+                  <tr>
+                      <td>Complaint Box :</td>
+                      <td>
+                          <textarea id="TextArea1" name="TextArea1" cols="20" rows="3"></textarea>
+                      </td>
+                  </tr>
+                <tr>
+                    <td colspan="2" align="center">
+                        <asp:Button ID="Button1" runat="server" Text="Register Here" OnClick="Button1_Click" />
+                    </td>
+                </tr>
+            </table>
+        </div>
 
 </asp:Content>

@@ -2,10 +2,11 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div>
-            <h1 align="center">
-                Product
-            </h1>
+     <div>
+            <h2 align="center">
+                <u>Product Registration</u>
+
+            </h2>
             <table align="center">
                 <tr>
                     <td>Product Name :</td>
@@ -24,4 +25,5 @@
                    
             </table>
         </div>
+      
 </asp:Content>

@@ -3,13 +3,13 @@
 </asp:Content>
 
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <h1 align="center">
-        Login Page
-    </h1>
-    <table align="center">
+    <h1 align="center" style="color:black">Login Page</h1>
+    
+    <table align="center" style="background-color:burlywood" width="400" heigth="400">
         <tr>
             <td>
-                <asp:Label ID="Label1" runat="server" Text="User Name :"></asp:Label>
+                <b><asp:Label ID="Label1" runat="server" Text="User Name :"></asp:Label></b>
+                
             </td>
             <td>
                 <asp:TextBox ID="TextName" runat="server"></asp:TextBox>
@@ -18,7 +18,8 @@
         <tr></tr>
         <tr>
             <td>
-                <asp:Label ID="Label2" runat="server" Text="Password :"></asp:Label>
+                <b><asp:Label ID="Label2" runat="server" Text="Password :"></asp:Label></b>
+                
             </td>
             <td>
                 <asp:TextBox ID="TextPassword" runat="server" Visible="True" TextMode="Password"></asp:TextBox>
@@ -34,6 +35,6 @@
             </td>
         </tr>
     </table>
-
+        
 
 </asp:Content>

@@ -68,15 +68,19 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Admin\AdminPage.aspx" />
-    <Content Include="Admin\Complaint_verify.aspx" />
+    <Content Include="Admin\ChatBox.aspx" />
+    <Content Include="Admin\ComplaintView.aspx" />
     <Content Include="Admin\prodreg.aspx" />
+    <Content Include="Admin\Query_Reply.aspx" />
     <Content Include="Admin\UserVerification.aspx" />
     <Content Include="Guest\Index.aspx" />
     <Content Include="Guest\Login.aspx" />
     <Content Include="Guest\userreg.aspx" />
-    <Content Include="User\complaint.aspx" />
-    <Content Include="User\productview.aspx" />
-    <Content Include="User\Query.aspx" />
+    <Content Include="User\Complaint.aspx" />
+    <Content Include="User\ComplaintStatus.aspx" />
+    <Content Include="User\ProductView.aspx" />
+    <Content Include="User\QueryPage.aspx" />
+    <Content Include="User\Query_Status.aspx" />
     <Content Include="User\User.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -95,12 +99,19 @@
     <Compile Include="Admin\AdminPage.aspx.designer.cs">
       <DependentUpon>AdminPage.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Admin\Complaint_verify.aspx.cs">
-      <DependentUpon>Complaint_verify.aspx</DependentUpon>
+    <Compile Include="Admin\ChatBox.aspx.cs">
+      <DependentUpon>ChatBox.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Admin\Complaint_verify.aspx.designer.cs">
-      <DependentUpon>Complaint_verify.aspx</DependentUpon>
+    <Compile Include="Admin\ChatBox.aspx.designer.cs">
+      <DependentUpon>ChatBox.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\ComplaintView.aspx.cs">
+      <DependentUpon>ComplaintView.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\ComplaintView.aspx.designer.cs">
+      <DependentUpon>ComplaintView.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\prodreg.aspx.cs">
       <DependentUpon>prodreg.aspx</DependentUpon>
@@ -108,6 +119,13 @@
     </Compile>
     <Compile Include="Admin\prodreg.aspx.designer.cs">
       <DependentUpon>prodreg.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Query_Reply.aspx.cs">
+      <DependentUpon>Query_Reply.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Query_Reply.aspx.designer.cs">
+      <DependentUpon>Query_Reply.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\UserVerification.aspx.cs">
       <DependentUpon>UserVerification.aspx</DependentUpon>
@@ -147,26 +165,40 @@
       <DependentUpon>userreg.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="User\complaint.aspx.cs">
-      <DependentUpon>complaint.aspx</DependentUpon>
+    <Compile Include="User\Complaint.aspx.cs">
+      <DependentUpon>Complaint.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="User\complaint.aspx.designer.cs">
-      <DependentUpon>complaint.aspx</DependentUpon>
+    <Compile Include="User\Complaint.aspx.designer.cs">
+      <DependentUpon>Complaint.aspx</DependentUpon>
     </Compile>
-    <Compile Include="User\productview.aspx.cs">
-      <DependentUpon>productview.aspx</DependentUpon>
+    <Compile Include="User\ComplaintStatus.aspx.cs">
+      <DependentUpon>ComplaintStatus.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="User\productview.aspx.designer.cs">
-      <DependentUpon>productview.aspx</DependentUpon>
+    <Compile Include="User\ComplaintStatus.aspx.designer.cs">
+      <DependentUpon>ComplaintStatus.aspx</DependentUpon>
     </Compile>
-    <Compile Include="User\Query.aspx.cs">
-      <DependentUpon>Query.aspx</DependentUpon>
+    <Compile Include="User\ProductView.aspx.cs">
+      <DependentUpon>ProductView.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="User\Query.aspx.designer.cs">
-      <DependentUpon>Query.aspx</DependentUpon>
+    <Compile Include="User\ProductView.aspx.designer.cs">
+      <DependentUpon>ProductView.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\QueryPage.aspx.cs">
+      <DependentUpon>QueryPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\QueryPage.aspx.designer.cs">
+      <DependentUpon>QueryPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\Query_Status.aspx.cs">
+      <DependentUpon>Query_Status.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\Query_Status.aspx.designer.cs">
+      <DependentUpon>Query_Status.aspx</DependentUpon>
     </Compile>
     <Compile Include="User\UserPage.Master.cs">
       <DependentUpon>UserPage.Master</DependentUpon>

@@ -20,9 +20,7 @@ namespace ComplaintBox1.Guest
         {
             objprobal.Name = TextName.Text;
             objprobal.Password = TextPassword.Text;
-
             DataTable dt = objprobal.LoginPage();
-
             if (dt.Rows.Count > 0)
             {
                 Session["uname"] = dt.Rows[0]["username"];
@@ -33,23 +31,17 @@ namespace ComplaintBox1.Guest
                 }
                 else if (dt.Rows[0][2].ToString() == "User" && dt.Rows[0][4].ToString() == "Confirm")
                 {
-                    Response.Redirect("../User/user.aspx");
+                    Response.Redirect("../User/User.aspx");
                 }
                 else if (dt.Rows[0][2].ToString() == "User" && dt.Rows[0][4].ToString() != "Confirm")
                 {
-                    Response.Write("<script>alert('User Not verified by Admin');</script>");
+                    Response.Write("<script>alert('User Not verified by Admin  ');</script>");
                 }
-
             }
             else
             {
-                Response.Write("<script>alert('incorrect Username or password');</script>");
+                Response.Write("<script>alert('Incorrect Username or password');</script>");
             }
         }
     }
 }
-
-
-
-
-

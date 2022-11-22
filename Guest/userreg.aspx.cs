@@ -25,7 +25,7 @@ namespace ComplaintBox1.Guest
             int j = objprobal.LoginInsert();
             if (i == 1)
             {
-                Response.Write("Success");
+                Response.Write("<script>alert('Register Success ');</script>");
             }
 
         }
