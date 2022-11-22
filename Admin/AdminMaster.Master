@@ -15,9 +15,9 @@
         <a href="../Admin/AdminPage.aspx">Home</a>&nbsp
         <a href="../Admin/prodreg.aspx">Product Registration</a>&nbsp
         <a href="../Admin/userVerification.aspx">User Verification</a>&nbsp
-        <a href="../User/ComplaintView.aspx">Complaint View</a>&nbsp
+        
         <a href="../User/ChatBox.aspx">Chat Box</a>&nbsp
-        <a href="../Admin/Complaint_verify.aspx"></a>
+        <a href="../Admin/Complaint_verify.aspx">Complaint View</a>
        
 
         <br />
